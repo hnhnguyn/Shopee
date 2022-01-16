@@ -1,0 +1,160 @@
+:root {
+    --PrimaryColor: #ee4d2d;
+    --WhiteColor: #fff;
+    --BlackColor: #000;
+    --TextColor: #333;
+    --BorderColor: #dbdbdb;
+    --StarYellowColor: #ffce3d;
+    --HeaderHeight: 120px;
+    --NavbarHeight: 37px;
+    --HeaderWithSearchHeight: calc(var(--HeaderHeight) - var(--NavbarHeight));
+    --HeaderSortBarHeight: 46px;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; /* 10px */
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Animation */
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(var(--GrowFrom));
+    }
+    to {
+        transform: scale(var(--GrowTo));
+    }
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: FadeIn linear 0.1s;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__body {
+    --GrowFrom: 0.7;
+    --GrowTo: 1;
+    position: relative;
+    margin: auto;
+    z-index: 1;
+    animation: grow linear 0.2s;
+}
+
+/* Button */
+.btn {
+    background-color: var(--WhiteColor);
+    min-width: 123px;
+    height: 34px;
+    padding: 0 12px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    outline: none;
+    cursor: pointer;
+    color: var(--TextColor);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+}
+
+.btn.btn--normal:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn--primary {
+    color: var(--WhiteColor);
+    background-color: var(--PrimaryColor);
+}
+
+.btn.btn--primary:hover {
+    opacity: 0.91;
+}
+
+.btn.btn--disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.btn--SizeS {
+    height: 32px;
+    padding: 0 8px;
+}
+
+/* Selection */
+.SelectInput {
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--WhiteColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.PaginationItem {
+    --height:30px;
+    font-size: 1.6rem;
+    color: #939393;
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height);
+    text-align: center;
+    margin: 0 14px;
+    cursor: pointer;
+}
+
+.PaginationItem--current {
+    color: var(--WhiteColor);
+    background-color: var(--PrimaryColor);
+    border-radius: 2px;
+}
+
+.PaginationItem:hover {
+    color: #ee5030;
+}
+
+.PaginationItem--current:hover {
+    color: var(--WhiteColor);
+    opacity: 0.91;
+}
